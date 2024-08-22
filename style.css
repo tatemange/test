@@ -1,0 +1,232 @@
+:root {
+    font-family: "SF UI Text", system-ui;
+    font-size: 15px;
+    color: rgb(54, 54, 65);
+
+    --first-color: #1364df;
+    --first-color-t: #1364df66;
+    --second-color: rgb(200, 200, 200);
+    --border-color: rgb(210, 210, 210);
+    --border: 1px solid var(--border-color)
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #e0e0e0;
+}
+
+
+.conteneur {
+    width: 70vw;
+    background: #fff;
+    border: var(--border);
+    display: flex;
+    box-shadow: 0 0 30px 15px #0001;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    padding-top: 64px;
+    border-radius: 16px;
+}
+
+.conteneur:hover {
+    box-shadow: 0 0 0 3px var(--first-color-t);
+    border-color: var(--first-color-t);
+}
+
+h1 {
+    font-size: clamp(1.2em, 5vw, 2.2em);
+    text-transform: capitalize;
+}
+
+
+form {
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "i1 i2 i3"
+        "i4 i5 i3"
+        "i6 i7 i3"
+        "i8 i8  i9"
+    ;
+    gap: 3px;
+}
+
+.item {
+    box-shadow: 0 0 15px #0003;
+    padding: 8px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.item:nth-child(1) {
+    grid-area: i1;
+}
+
+.item:nth-child(2) {
+    grid-area: i2;
+}
+
+.item:nth-child(3) {
+    grid-area: i3;
+}
+
+.item:nth-child(4) {
+    grid-area: i4;
+}
+
+.item:nth-child(5) {
+    grid-area: i5;
+}
+
+.item:nth-child(6) {
+    grid-area: i6;
+}
+
+.item:nth-child(7) {
+    grid-area: i7;
+}
+
+
+.item:nth-child(8) {
+    grid-area: i8;
+    justify-content: space-between;
+    flex-direction: row;
+    font-size: 90%;
+    align-items: flex-end;
+    box-shadow: none;
+}
+
+.item:nth-child(9) {
+    grid-area: i9;
+    align-items: flex-end;
+    margin-top: 20px;
+    justify-content: center;
+    box-shadow: none;
+}
+
+.item .text {
+    font-size: .87em;
+    padding-left: 2px;
+}
+
+.item input {
+    border: var(--border);
+    height: 26px;
+    padding: 0 8px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+
+.item textarea {
+    height: 100%;
+    width: 100%;
+    border: var(--border);
+    border-radius: 4px;
+    padding: 8px;
+    resize: none;
+    outline: none;
+}
+
+.item input[type="checkbox"] {
+    height: auto;
+    vertical-align: middle;
+}
+
+.item input[type="submit"] {
+    background: var(--first-color);
+    color: var(--color-active, #fff);
+    border-color: transparent;
+}
+
+.item input[type="submit"]:focus,
+.item input:focus,
+textarea:focus {
+    border-color: var(--first-color-t);
+    outline: 2px solid var(--first-color-t);
+}
+
+
+
+@media screen and (max-width: 1100px) {
+    form {
+        padding-top: 10px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "i1 i2"
+            "i4 i5"
+            "i3 i3"
+            "i6 i7"
+            "i8 i8"
+            "i9 i9";
+        gap: 3px;
+    }
+    .conteneur {
+        width: 80vw;
+        border-radius: 1vw;
+        padding-top: 50px;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    form {
+        padding-top: 10px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas:
+            "i1"
+            "i2"
+            "i3"
+            "i4"
+            "i5"
+            "i6"
+            "i7"
+            "i8"
+            "i9";
+        gap: 0px;
+    }
+
+    .conteneur {
+        width: 75vw;
+        padding: 20px;
+        padding-top: 30px;
+        height: 100vh;
+        border-radius: 0px;
+        box-shadow: none;
+    }
+
+    .item:nth-child(8) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .item {
+        padding: 0;
+        padding-top: 10px;
+        box-shadow: none;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    .conteneur {
+        width: 100vw;
+        padding: 10px;
+        padding-top: 15px;
+    }
+
+}
